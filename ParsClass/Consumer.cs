@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GosZakup.ParsClass;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace GosZakup
         public string unp { get; set; }
         public string name { get; set; }
         public string adress { get; set; }
-      
+
        
 
     }

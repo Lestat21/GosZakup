@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Leaf.xNet;
 using AngleSharp.Html.Parser;
 using System.Windows;
+using GosZakup.ParsClass;
 
 namespace GosZakup
 {
@@ -73,27 +74,36 @@ namespace GosZakup
                     // обработка карточки
 
 
-                    // есть карточки с организаторами и без... отличаются строками для обработки кода страницы - выбираем в коде страницы метку и по ней сравниваем.. 
-
                     string blank_kod = GetPage(full_addr);
                     HtmlParser blankpars = new HtmlParser();
                     var blank = blankpars.ParseDocument(blank_kod);
 
                     var a = blank.QuerySelector("body > div.wrap > div").InnerHtml;
 
-                    // пишем данные в базу
+                    // парсим и пишем данные в базу
                     Consumer consumer = new Consumer(); // заполняем класс покупателя
-
+                    Contact contact = new Contact(); // заполняем класс контактных данных
                     //если без организатора то этот код
-                    var flag = blank.QuerySelector()
+                    var flag = blank.QuerySelector("body > div.wrap > div > div:nth-child(4) > div > b").InnerHtml;
 
-                    if ()
+                    if (flag == "Сведения о заказчике")
+                    {
 
-                    consumer.unp = blank.QuerySelector("body > div.wrap > div > div:nth-child(4) > table > tbody > tr:nth-child(3) > td").InnerHtml;
-                    consumer.name = blank.QuerySelector("body > div.wrap > div > div:nth-child(4) > table > tbody > tr:nth-child(1) > td").InnerHtml;
-                    consumer.adress = blank.QuerySelector("body > div.wrap > div > div:nth-child(4) > table > tbody > tr:nth-child(2) > td").InnerHtml;
-                    //consumer.contact = blank.QuerySelector("body > div.wrap > div > div:nth-child(4) > table > tbody > tr:nth-child(4) > td").InnerHtml;
+                        consumer.unp = blank.QuerySelector("body > div.wrap > div > div:nth-child(4) > table > tbody > tr:nth-child(3) > td").InnerHtml;
+                        consumer.name = blank.QuerySelector("body > div.wrap > div > div:nth-child(4) > table > tbody > tr:nth-child(1) > td").InnerHtml;
+                        consumer.adress = blank.QuerySelector("body > div.wrap > div > div:nth-child(4) > table > tbody > tr:nth-child(2) > td").InnerHtml;
 
+                        
+                       
+                        
+                    }
+                    else
+                    {
+                        consumer.unp = blank.QuerySelector("body > div.wrap > div > div:nth-child(5) > table > tbody > tr:nth-child(3) > td").InnerHtml;
+                        consumer.name = blank.QuerySelector("body > div.wrap > div > div:nth-child(5) > table > tbody > tr:nth-child(1) > td").InnerHtml;
+                        consumer.adress = blank.QuerySelector("body > div.wrap > div > div:nth-child(5) > table > tbody > tr:nth-child(2) > td").InnerHtml;
+
+                    }
                     //если с организатором то этот код
 
 

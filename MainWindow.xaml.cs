@@ -51,13 +51,17 @@ namespace GosZakup
             {
                 string evrytPage = "http://goszakupki.by/tenders/posted?page=" + i;
                 string code_page = GosZak.GetPage(evrytPage);
-                in_Page.AddRange(GosZak.ParsPage(code_page));// убрать за ненадобностью потом - это сбор всех ссылок на карточки в одном листе
+                in_Page.AddRange(GosZak.ParsPage(code_page));// 
                 
                 online_status2.Text = $"Обработано карточек {in_Page.Count.ToString()} ";
                 online_status1.Text = $"Обработано страниц {i} из {num_page}";
             }
+
+            db = new UserContext();
+
+            db.Consumers.Load();// подключаем базу для вывода в DataGred
+            MainTabl.ItemsSource = db.Consumers.Local.ToBindingList();
             
-            //links.DataContext = in_Page; // просто вывод для того что бы знать какие страницы в работе
 
         }
     }

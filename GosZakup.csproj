@@ -79,7 +79,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ParsClass\Consumer.cs" />
-    <Compile Include="ParsClass\Contact.cs" />
+    <Compile Include="ParsClass\Lot.cs" />
+    <Compile Include="ParsClass\Purchase.cs" />
+    <Compile Include="ParsClass\PursaseDocs.cs" />
+    <Compile Include="ParsClass\TypePurshase.cs" />
     <Compile Include="UserContext.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

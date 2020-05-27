@@ -18,9 +18,9 @@
 
         <DataGrid Grid.Row="1" x:Name="MainTabl" AutoGenerateColumns="False"  HorizontalAlignment="Stretch"  Margin="0,0,0,0" VerticalAlignment="Stretch" IsReadOnly="True" >
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding unp, Mode=OneWay, IsAsync=True}" Header="УНП" Width="90"/>
-                <DataGridTextColumn Binding="{Binding name, Mode=OneWay, IsAsync=True}" Header="Организация" Width="*"/>
-                <DataGridTextColumn Binding="{Binding adress, Mode=OneWay, IsAsync=True}" Header="Адрес" Width="*"/>
+                <DataGridTextColumn Binding="{Binding unp}" Header="УНП" Width="90"/>
+                <DataGridTextColumn Binding="{Binding name}" Header="Организация" Width="*"/>
+                <DataGridTextColumn Binding="{Binding adress}" Header="Адрес" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         

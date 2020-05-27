@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace GosZakup.ParsClass
 {
-    class Contact
+    class TypePurshase
     {
-        int _unp_id { get; set; }
-        string _contact { get; set; }
-
-
-
-
+        public int id { get; set; }
+        public string type_of_purshase { get; set; } // тип закупок
     }
 }

@@ -15,7 +15,7 @@ namespace GosZakup
         { }
 
         public DbSet<Consumer> Consumers { get; set; }
-        //public DbSet<Contact> Contacts { get; set; }
+        
 
 
 
