@@ -1,0 +1,100 @@
+﻿<Window x:Class="GosZakup.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GosZakup"
+        mc:Ignorable="d"
+        Title="GosZakupki 0.0.0.2" Height="550" Width="800">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="26"/>
+        </Style>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="26"/>
+        </Style>
+        
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="225"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+
+        <Menu Grid.Row="0" HorizontalAlignment="Stretch" Height="20" Margin="0,0,0,0"  VerticalAlignment="Top" >
+            <MenuItem Header="Файл">
+                <MenuItem Header="Подключить БД" ></MenuItem>
+                <MenuItem Header="Закрыть БД" >
+                    <MenuItem Header="WinForms"></MenuItem>
+                    <MenuItem Header="WPF" ></MenuItem>
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="Выход" Click="MenuItem_Click_1"  ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Парсинг" >
+                <MenuItem Header="Спарсить весь сайт"></MenuItem>
+                <MenuItem Header="Спарсить новые" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Справка" >
+                <MenuItem Header="Help"></MenuItem>
+                <MenuItem Header="О программе" Click="MenuItem_Click"  ></MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <Button Grid.Column="0" Content="Спарсить весь сайт" HorizontalAlignment="Left" Margin="30,195,0,0" VerticalAlignment="Top" Width="119" Click="Button_Click" Height="20" />
+        <Button Content="Найти в БД" HorizontalAlignment="Left" Margin="155,195,0,0" VerticalAlignment="Top" Width="119"/>
+        
+        <DataGrid Grid.Row="1" x:Name="MainTabl" AutoGenerateColumns="False"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding unp}"     Header="Номер аукциона" Width="110"/>
+                <DataGridTextColumn Binding="{Binding name_of_purchase}"    Header="Предмет закупки" Width="*"/>
+                <DataGridTextColumn Binding="{Binding adress}"  Header="Стоимость" Width="*"/>
+                <DataGridTextColumn Binding="{Binding name}"  Header="Покупатель" Width="*"/>
+                <DataGridTextColumn Binding="{Binding adress}"  Header="УНП" Width="*"/>
+                <DataGridTextColumn Binding="{Binding adress}"  Header="Контактные данные" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StatusBar Grid.Row="2" HorizontalAlignment="Stretch" Height="30" Margin="0,0,0,0" VerticalAlignment="Top" >
+            <TextBlock x:Name="online_status1" Width="200"/>
+            <TextBlock x:Name="online_status2" Width="187"/>
+        </StatusBar>
+        
+        <Label Content="Покупатель"             Margin="27,30,0,0"      Width="74"/>
+        <Label Content="УНП покупателя"         Margin="27,61,0,0"      Width="99"/>
+        <Label Content="Предмет закупки"        Margin="27,121,0,0"     Width="104"/>
+        <Label Content="Вид процедуры закупки"  Margin="27,92,0,0"      Width="143"/>
+        <Label Content="Стоимость закупки с "   Margin="27,154,0,0"     Width="127"/>
+        <Label Content="по"                     Margin="257,154,0,0"    Width="24"/>
+        <Label Content="Номер закупки"          Margin="385,61,0,0"     Width="99"/>
+
+        <TextBox Margin="175,34,0,0"   Text="Введите наименование покупателя. Например: Военная часть" Width="497"/>
+        <TextBox Margin="175,65,0,0"   Text="Например: 100308099" Width="188"/>
+        <TextBox Margin="175,123,0,0"  Text="Введите текст для поиска по предмету закупки. Например: Бумага" Width="497"/>
+        <TextBox Margin="175,155,0,0"  Width="77"/>
+        <TextBox Margin="286,155,0,0"  Width="77"/>
+        <TextBox Margin="509,65,0,0"   Text="Например: auc0000000001" Width="163"/>
+
+        <ComboBox x:Name="CB"  HorizontalAlignment="Left" Margin="175,96,0,0" VerticalAlignment="Top" Width="309">
+            <!--<TextBlock>Электронный аукцион</TextBlock>
+            <TextBlock>Запрос ценовых предложений</TextBlock>
+            <TextBlock>Открытый конкурс (в электронном виде)</TextBlock>
+            <TextBlock>Двухэтапный конкурс (первый этап)</TextBlock>
+            <TextBlock>Двухэтапный конкурс (второй этап)</TextBlock>
+            <TextBlock>Закупка из одного источника</TextBlock>
+            <TextBlock>Конкурс с ограниченным участием</TextBlock>
+            <TextBlock>Закупка из одного источника (в электронном виде)</TextBlock>-->
+        </ComboBox>
+
+
+
+
+    </Grid>
+</Window>

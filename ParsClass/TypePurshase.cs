@@ -10,5 +10,13 @@ namespace GosZakup.ParsClass
     {
         public int id { get; set; }
         public string type_of_purshase { get; set; } // тип закупок
+
+        public ICollection<Purchase> Purchases { get; set; }
+        public TypePurshase()
+        {
+            Purchases = new List<Purchase>();
+        }
+
+
     }
 }

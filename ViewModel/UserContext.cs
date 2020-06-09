@@ -15,10 +15,10 @@ namespace GosZakup
         { }
 
         public DbSet<Consumer> Consumers { get; set; }
-        
+        public DbSet<Purchase> Purchases { get; set; }
+        public DbSet<TypePurshase> TypePurshases { get; set; }
+        public DbSet<Lot> Lots { get; set; }
 
 
-
-       
     }
 }

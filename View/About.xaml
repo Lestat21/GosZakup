@@ -1,0 +1,16 @@
+﻿<Window x:Class="GosZakup.View.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GosZakup"
+        mc:Ignorable="d"
+        Title="About" Height="200" Width="350">
+    <Grid>
+        <Label Content="Версия 0.0.0.1" HorizontalAlignment="Left" Margin="35,25,0,0" VerticalAlignment="Top" Height="25" />
+        <Label Content="Курсовой проект Парсинг сайта госзакупки" HorizontalAlignment="Left" Margin="35,60,0,0" VerticalAlignment="Top" Height="25" />
+        <Label Content="Группа 80333" HorizontalAlignment="Left" Margin="35,95,0,0" VerticalAlignment="Top" Height="25" />
+        <Label Content="Капралов В.Н." HorizontalAlignment="Left" Margin="35,121,0,0" VerticalAlignment="Top" Height="25" />
+
+    </Grid>
+</Window>

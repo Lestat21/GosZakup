@@ -14,7 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GosZakup
+
+namespace GosZakup.View
+
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
@@ -28,8 +30,15 @@ namespace GosZakup
             InitializeComponent();
             db = new UserContext();
 
+
+            // отобразить данные нескольких таблиц??????
+
             db.Consumers.Load();// подключаем базу для вывода в DataGred
             MainTabl.ItemsSource = db.Consumers.Local.ToBindingList();
+            var type = db.TypePurshases.Select(p => p.type_of_purshase);
+            List<string> list_of_type = new List<string>(type);
+            CB.ItemsSource = list_of_type;
+
 
             this.Closing += MainWindow_Closing; // чистим память
         }
@@ -47,7 +56,7 @@ namespace GosZakup
             
             List<string> in_Page = new List<string>();// удалить после отработки всего модуля
             
-            for (int i = 1; i <= 2; i++)
+            for (int i = 1; i <= 50; i++)
             {
                 string evrytPage = "http://goszakupki.by/tenders/posted?page=" + i;
                 string code_page = GosZak.GetPage(evrytPage);
@@ -61,8 +70,22 @@ namespace GosZakup
 
             db.Consumers.Load();// подключаем базу для вывода в DataGred
             MainTabl.ItemsSource = db.Consumers.Local.ToBindingList();
-            
+            db.TypePurshases.Load();
+            var type = db.TypePurshases.Select(p => p.type_of_purshase);
+            List<string> list_of_type = new List<string>(type);
+            CB.ItemsSource = list_of_type;
 
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            About about = new About();
+            about.Show();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
