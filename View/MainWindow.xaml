@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:GosZakup"
         mc:Ignorable="d"
 		WindowStartupLocation="CenterScreen"
-        Title="GosZakupki 0.0.0.2" Height="550" Width="800">
+        Title="GosZakupki" Height="550" Width="800" Icon="internet.png" >
+	
 	<Window.Resources>
 		<Style TargetType="{x:Type TextBox}">
 			<Setter Property="HorizontalAlignment" Value="Left" />
@@ -21,6 +22,7 @@
 
 	</Window.Resources>
 
+	
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="225"/>
@@ -31,41 +33,77 @@
 
 		<Menu Grid.Row="0" HorizontalAlignment="Stretch" Height="20" Margin="0,0,0,0"  VerticalAlignment="Top" >
 			<MenuItem Header="Файл">
-				<MenuItem Header="Очистить БД" Click="MenuItem_Click_2" ></MenuItem>
+				<MenuItem Header="Очистить БД" Click="MenuItem_Click_2" >
+					<MenuItem.Icon>
+						<Image Source="stop sign.ico"/>
+					</MenuItem.Icon>
+				</MenuItem>
 				<MenuItem Header="Еще чего-нить" >
 					<MenuItem Header="Подменюшка"></MenuItem>
 					<MenuItem Header="Для понятия как работает" ></MenuItem>
 				</MenuItem>
 				<Separator />
-				<MenuItem Header="Выход" Click="MenuItem_Click_1"  ></MenuItem>
+				<MenuItem Header="Выход" Click="MenuItem_Click_1"  >
+					<MenuItem.Icon>
+						<Image Source="/GosZakup;component/Resources/exit.ico"/>
+					</MenuItem.Icon>
+				</MenuItem>
 			</MenuItem>
 			<MenuItem Header="Парсинг" >
-				<MenuItem Header="Парсинг всей базы закупок" Click="Button_Click"></MenuItem>
-				<MenuItem Header="Парсинг по запросу" ></MenuItem>
-				<MenuItem Header="Парсинг новых закупок" ></MenuItem>
-				<MenuItem Header="Обновление статусов закупок" ></MenuItem>
+				<MenuItem Header="Парсинг всей базы закупок" Click="Button_Click">
+					<MenuItem.Icon>
+						<Image Source="/GosZakup;component/Resources/Report.png"/>
+					</MenuItem.Icon>
+				</MenuItem>
+				<MenuItem Header="Парсинг по запросу" Click="MenuItem_Click_3" >
+					<MenuItem.Icon>
+						<Image Source="/GosZakup;component/Resources/Find.png"/>
+					</MenuItem.Icon>
+				</MenuItem>
+				<MenuItem Header="Парсинг новых закупок" >
+					<MenuItem.Icon>
+						<Image Source="new.ico"/>
+					</MenuItem.Icon>
+				</MenuItem>
+				<MenuItem Header="Обновление статусов закупок" >
+					<MenuItem.Icon>
+						<Image Source="/GosZakup;component/Resources/refresh.ico"/>
+					</MenuItem.Icon>
+				</MenuItem>
 			</MenuItem>
 			<MenuItem Header="Работа с базой данных" >
 				<MenuItem Header="Редактирование/удаление записей"></MenuItem>
 				<MenuItem Header="Удаление завершенных закупок"></MenuItem>
 			</MenuItem>
 			<MenuItem Header="Справка" >
-				<MenuItem Header="Help"></MenuItem>
-				<MenuItem Header="О программе" Click="MenuItem_Click"  ></MenuItem>
+				<MenuItem Header="Help">
+					<MenuItem.Icon>
+						<Image Source="/GosZakup;component/Resources/Help book 3d.png"/>
+					</MenuItem.Icon>
+				</MenuItem>
+				<MenuItem Header="О программе" Click="MenuItem_Click"  >
+					<MenuItem.Icon>
+						<Image Source="internet.png"/>
+					</MenuItem.Icon>
+				</MenuItem>
 			</MenuItem>
 		</Menu>
 
-		
-		<Button	 Content="НАЙТИ" HorizontalAlignment="Left" Margin="606,187,0,0" VerticalAlignment="Top" Width="119"/>
-
-		<DataGrid Grid.Row="1" x:Name="MainTabl" AutoGenerateColumns="False"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True"  >
+		<DataGrid Grid.Row="1" x:Name="MainTabl" AutoGenerateColumns="False"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True"  >
+			<DataGrid.ItemContainerStyle>
+				<Style TargetType="DataGridRow">
+					<EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+				</Style>
+			</DataGrid.ItemContainerStyle>
 			<DataGrid.Columns>
-				<DataGridTextColumn Binding="{Binding unp}"					Header="Номер аукциона"		Width="110"/>
+				<DataGridTextColumn Binding="{Binding num}"					Header="Номер аукциона"		Width="105"/>
+				<DataGridTextColumn Binding="{Binding date}"				Header="Дата		"		Width="70"/>
 				<DataGridTextColumn Binding="{Binding name_of_purchase}"    Header="Предмет закупки"	Width="*"/>
-				<DataGridTextColumn Binding="{Binding adress}"				Header="Стоимость"			Width="*"/>
-				<DataGridTextColumn Binding="{Binding name}"				Header="Покупатель"			Width="*"/>
-				<DataGridTextColumn Binding="{Binding adress}"				Header="УНП"				Width="*"/>
-				<DataGridTextColumn Binding="{Binding adress}"				Header="Контактные данные"	Width="*"/>
+				<DataGridTextColumn Binding="{Binding price}"				Header="Стоимость"			Width="90"/>
+				<DataGridTextColumn Binding="{Binding consumer}"			Header="Покупатель"			Width="*"/>
+				<DataGridTextColumn Binding="{Binding unp}"					Header="УНП"				Width="70"/>
+				<DataGridTextColumn Binding="{Binding contact}"				Header="Контактные данные"	Width="*"/>
+								
 			</DataGrid.Columns>
 		</DataGrid>
 
@@ -92,7 +130,6 @@
 		<TextBox Margin="175,155,0,0"	ToolTip="Введите начальную стоимость закупки"								Width="77"/>
 		<TextBox Margin="286,155,0,0"	ToolTip="Введите предельную стоимость закупки"								Width="77"/>
 		<TextBox Margin="509,65,0,0"	ToolTip="Например: auc0000000001"											Width="216"/>
-		
 
 		<ComboBox x:Name="CB"		ToolTip="Выберите вид процедуры закупки"	HorizontalAlignment="Left" Margin="175,92,0,0"		VerticalAlignment="Top" Width="309" Height="22" />
 		<ComboBox x:Name="Status"	ToolTip="Выберите статус закупки"		HorizontalAlignment="Left" Margin="175,185,0,0"		VerticalAlignment="Top" Width="309" Height="22"/>
@@ -100,10 +137,7 @@
 		<DatePicker ToolTip="Выберите дату начала закупки"		HorizontalAlignment="Left" Margin="496,155,0,0" VerticalAlignment="Top"/>
 		<DatePicker ToolTip="Выберите дату завершения закупки"	HorizontalAlignment="Left" Margin="625,155,0,0" VerticalAlignment="Top"/>
 		
-
-
-
-
+		<Button	 Content="Поиск в БД" HorizontalAlignment="Left" Margin="606,187,0,0" VerticalAlignment="Top" Width="119"/>
 
 	</Grid>
 </Window>

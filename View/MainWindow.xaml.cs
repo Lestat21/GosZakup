@@ -31,8 +31,21 @@ namespace GosZakup.View
             }
             else
             {
-                db.Consumers.Load();// подключаем базу для вывода в DataGred
-                MainTabl.ItemsSource = db.Consumers.Local.ToBindingList();
+                // db.Consumers.Load();// подключаем базу для вывода в DataGred
+                var result = from Consumer in db.Consumers
+                             join Purshase in db.Purchases on Consumer.id equals Purshase.ConsumerID
+                             select new
+                             {
+                                 num = Purshase.num_purhchase,
+                                 date = Purshase.start_date,
+                                 name_of_purchase = Purshase.name_of_purchase,
+                                 price = Purshase.cost,
+                                 consumer = Consumer.name,
+                                 unp = Consumer.unp,
+                                 contact = Purshase.contact
+                             };
+
+                MainTabl.ItemsSource = result.ToList();    //db.Consumers.Local.ToBindingList();
 
                 var type = db.TypePurshases.Select(p => p.type_of_purshase);
                 List<string> list_of_type = new List<string>(type);
@@ -122,6 +135,24 @@ namespace GosZakup.View
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
             MessageBox.Show($"Парсит целый день что бы потом вот просто так все удалить? Одумайтеь!", "Внимание.", MessageBoxButton.OK, MessageBoxImage.Warning);
+        }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            SerchOnLIne serchOnLine = new SerchOnLIne();
+            serchOnLine.Show();
+        }
+
+        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            DataGridRow row = sender as DataGridRow;
+
+            if (row != null)
+            {
+                // dg - мой DataGrid
+                TextBlock tbl = MainTabl.Columns[0].GetCellContent(row) as TextBlock;
+                MessageBox.Show($"Вы открыли карточку с номером {tbl.Text} \nДля продолжения нажмите ОК.", "Информация.", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }

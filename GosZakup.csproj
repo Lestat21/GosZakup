@@ -87,6 +87,9 @@
     <Compile Include="View\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SerchOnLIne.xaml.cs">
+      <DependentUpon>SerchOnLIne.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -101,6 +104,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SerchOnLIne.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -135,7 +142,27 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\exit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Find.png" />
+    <Resource Include="Resources\Help book 3d.png" />
+    <Resource Include="Resources\Report.png" />
+    <Resource Include="Resources\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\refresh.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\new.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\stop sign.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\internet.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
