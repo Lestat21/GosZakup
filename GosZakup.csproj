@@ -81,6 +81,7 @@
     <Compile Include="ParsClass\Consumer.cs" />
     <Compile Include="ParsClass\Lot.cs" />
     <Compile Include="ParsClass\Purchase.cs" />
+    <Compile Include="ParsClass\Status.cs" />
     <Compile Include="ParsClass\TypePurshase.cs" />
     <Compile Include="ViewModel\UserContext.cs" />
     <Compile Include="View\About.xaml.cs">

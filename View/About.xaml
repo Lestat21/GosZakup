@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GosZakup"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="About" Height="200" Width="350">
     <Grid>
         <Label Content="Версия 0.0.0.1" HorizontalAlignment="Left" Margin="35,25,0,0" VerticalAlignment="Top" Height="25" />

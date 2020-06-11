@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace GosZakup.ParsClass
 {
@@ -11,7 +7,8 @@ namespace GosZakup.ParsClass
         public int id { get; set; }
         public string type_of_purshase { get; set; } // тип закупок
 
-        public ICollection<Purchase> Purchases { get; set; }
+        public virtual ICollection<Purchase> Purchases { get; set; }
+        
         public TypePurshase()
         {
             Purchases = new List<Purchase>();
