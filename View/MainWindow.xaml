@@ -15,10 +15,21 @@
 			<Setter Property="Height" Value="22"/>	
 		</Style>
 		<Style TargetType="{x:Type Label}">
-			<Setter Property="HorizontalAlignment" Value="Left" />
-			<Setter Property="VerticalAlignment" Value="Top"/>
-			<Setter Property="Height" Value="26"/>
+			<Style.Setters>
+				<Setter Property="HorizontalAlignment" Value="Left" />
+				<Setter Property="VerticalAlignment" Value="Top"/>
+				<Setter Property="Height" Value="26"/>
+			</Style.Setters>
+			<Style.Triggers>
+				<Trigger Property="Validation.HasError" Value="true">
+					<Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                            Path=(Validation.Errors)[0].ErrorContent}"/>
+					<Setter Property="Background" Value="Pink"/>
+				</Trigger>
+
+			</Style.Triggers>
 		</Style>
+		
 
 	</Window.Resources>
 
@@ -113,6 +124,8 @@
 			<ProgressBar x:Name="pbStatus" Minimum="0" Maximum="100"  Height="15" Width="374"/>
 		</StatusBar>
 
+		<!--ПОИСК-->
+		
 		<Label Content="Покупатель"             Margin="27,30,0,0"      Width="74"/>
 		<Label Content="УНП покупателя"         Margin="27,61,0,0"      Width="99"/>
 		<Label Content="Предмет закупки"        Margin="27,121,0,0"     Width="104"/>
@@ -124,12 +137,12 @@
 		<Label Content="по"                     Margin="596,154,0,0"    Width="24"/>
 		<Label Content="Статус закупки"			Margin="27,185,0,0"     Width="127"/>
 		
-		<TextBox Margin="175,34,0,0"	ToolTip="Введите наименование покупателя. Например: Военная часть"			Width="550" />
-		<TextBox Margin="175,65,0,0"	ToolTip="Например: 100308099"												Width="188"/>
-		<TextBox Margin="175,123,0,0"	ToolTip="Введите текст для поиска по предмету закупки. Например: Бумага"	Width="550"/>
-		<TextBox Margin="175,155,0,0"	ToolTip="Введите начальную стоимость закупки"								Width="77"/>
-		<TextBox Margin="286,155,0,0"	ToolTip="Введите предельную стоимость закупки"								Width="77"/>
-		<TextBox Margin="509,65,0,0"	ToolTip="Например: auc0000000001"											Width="216"/>
+		<TextBox Text="{Binding Path=LName, ValidatesOnExceptions=True}"	Margin="175,34,0,0"		ToolTip="Введите наименование покупателя. Например: Военная часть"			Width="550" />
+		<TextBox Text="{Binding Path=LName, ValidatesOnExceptions=True}"	Margin="175,65,0,0"		ToolTip="Например: 100308099"												Width="188"/>
+		<TextBox Text="{Binding Path=LName, ValidatesOnExceptions=True}"	Margin="175,123,0,0"	ToolTip="Введите текст для поиска по предмету закупки. Например: Бумага"	Width="550"/>
+		<TextBox Text="{Binding Path=LName, ValidatesOnExceptions=True}"	Margin="175,155,0,0"	ToolTip="Введите начальную стоимость закупки"								Width="77"/>
+		<TextBox Text="{Binding Path=LName, ValidatesOnExceptions=True}"	Margin="286,155,0,0"	ToolTip="Введите предельную стоимость закупки"								Width="77"/>
+		<TextBox Text="{Binding Path=LName, ValidatesOnExceptions=True}"	Margin="509,65,0,0"		ToolTip="Например: auc0000000001"											Width="216"/>
 
 		<ComboBox x:Name="CB"		ToolTip="Выберите вид процедуры закупки"	HorizontalAlignment="Left" Margin="175,92,0,0"		VerticalAlignment="Top" Width="309" Height="22" />
 		<ComboBox x:Name="Status"	ToolTip="Выберите статус закупки"		HorizontalAlignment="Left" Margin="175,185,0,0"		VerticalAlignment="Top" Width="309" Height="22"/>

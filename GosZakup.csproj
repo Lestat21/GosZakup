@@ -83,6 +83,7 @@
     <Compile Include="ParsClass\Purchase.cs" />
     <Compile Include="ParsClass\Status.cs" />
     <Compile Include="ParsClass\TypePurshase.cs" />
+    <Compile Include="ViewModel\SerchEngin.cs" />
     <Compile Include="ViewModel\UserContext.cs" />
     <Compile Include="View\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>

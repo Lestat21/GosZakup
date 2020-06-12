@@ -31,7 +31,6 @@ namespace GosZakup.View
             }
             else
             {
-                // db.Consumers.Load();// подключаем базу для вывода в DataGred
                 var result = from Consumer in db.Consumers
                              join Purshase in db.Purchases on Consumer.id equals Purshase.ConsumerID
                              select new
@@ -45,7 +44,7 @@ namespace GosZakup.View
                                  contact = Purshase.contact
                              };
 
-                MainTabl.ItemsSource = result.ToList();    //db.Consumers.Local.ToBindingList();
+                MainTabl.ItemsSource = result.ToList();    
 
                 var type = db.TypePurshases.Select(p => p.type_of_purshase);
                 List<string> list_of_type = new List<string>(type);

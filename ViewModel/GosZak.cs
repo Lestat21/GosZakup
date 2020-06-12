@@ -116,7 +116,6 @@ namespace GosZakup
 
         }
 
-
         public static void ParsBlankPage(int alfa, string blank_kod, string last_page, string numb_of_pursase, string main_status, string full_addr)
         {
             using (UserContext db = new UserContext())
