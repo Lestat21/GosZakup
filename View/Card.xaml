@@ -1,0 +1,58 @@
+﻿<Window x:Class="GosZakup.View.Card"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GosZakup.View"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="ViewCard" Height="450" Width="800">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="22"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+        </Style>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="26"/>
+        </Style>
+    </Window.Resources>
+
+
+    <Grid x:Name="GR_Card" Language="ru-RU">
+        <Canvas x:Name="Print" Margin="0,0,0,72">
+        <Label Content="№ Закупки"      Margin="220,10,0,0"     Width="82"/>
+        <Label Content="УНП"            Margin="20,159,0,0"     Width="93"/>
+        <Label Content="Покупатель"     Margin="20,202,0,0"    Width="93"/>
+        <Label Content="Адрес"          Margin="20,247,0,0"     Width="52"/>
+        <Label Content="Контактное лицо"        Margin="20,291,0,0"     Width="109"/>
+        <Label Content="Наименование закупки"   Margin="20,39,0,0"      Width="93"/>
+        <Label Content="Тип закупки"            Margin="20,90,0,0"      Width="93"/>
+        <Label Content="Сроки проведения"       Margin="20,124,0,0"     Width="119"/>
+        <Label Content="Статус закупки"         Margin="430,93,0,0"     Width="93"/>
+        <Label Content="по"                     Margin="265,125,0,0"    Width="23" />
+
+
+        <TextBox x:Name="TB_num"        Text="{Binding Path=num_purhchase}" Height="25" Margin="310,10,0,0" TextWrapping="Wrap"    Width="120"/>
+        <TextBox x:Name="TB_name"       Text="{Binding Path=name_of_purchase}" Height="50" Margin="130,42,0,0" TextWrapping="Wrap"    Width="609"/>
+        <TextBox x:Name="TB_type"       Text="{Binding Path=type_of_purshase}" Height="25" Margin="130,96,0,0" TextWrapping="Wrap"    Width="294"/>
+        <TextBox x:Name="TB_startDate"  Text="{Binding Path=start_date, StringFormat='dd MMMM yyyy'}" Height="23" Margin="130,128,0,0" TextWrapping="Wrap"   Width="120"/>
+        <TextBox x:Name="TB_unp"        Text="{Binding Path=unp}" Height="25" Margin="130,162,0,0" TextWrapping="Wrap"    Width="116"/>
+        <TextBox x:Name="TB_consumer"   Text="{Binding Path=name}" Height="55" Margin="130,190,0,0" TextWrapping="Wrap"   Width="609"/>
+        <TextBox x:Name="TB_adress"     Text="{Binding Path=adress}" Height="25" Margin="130,247,0,0" TextWrapping="Wrap"    Width="609"/>
+        <TextBox x:Name="TB_contact"    Text="{Binding Path=contact}" Height="55" Margin="130,275,0,0" TextWrapping="Wrap"   Width="609"/>
+        <TextBox x:Name="TB_endDate"    Text="{Binding Path=end_date, StringFormat='dd MMMM yyyy'}" Height="23" Margin="297,129,0,0" TextWrapping="Wrap"   Width="120"/>
+        <TextBox x:Name="TB_Status"     Text="{Binding Path=status}" Height="25" Margin="525,96,0,0" TextWrapping="Wrap"    Width="213"/>
+
+        </Canvas>
+
+        <Button Content="Печать" HorizontalAlignment="Left" Margin="533,370,0,0" VerticalAlignment="Top" Width="75" Click="BC_Print"/>
+        <Button Content="Закрыть" HorizontalAlignment="Left" Margin="653,370,0,0" VerticalAlignment="Top" Width="75" Click="BC_Close"/>
+
+
+    </Grid>
+</Window>

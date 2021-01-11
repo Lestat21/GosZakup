@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace GosZakup.ParsClass
 {
@@ -7,9 +8,9 @@ namespace GosZakup.ParsClass
         public int id { get; set; }
         public string num_purhchase { get; set; } // номер закупки
         public string name_of_purchase { get; set; } // название закупки
-        public string start_date { get; set; } // начало закупки
-        public string end_date { get; set; } // дата завершения закупки
-        public string cost { get; set; } // стоимость общая закупки
+        public DateTime start_date { get; set; } // начало закупки
+        public DateTime end_date { get; set; } // дата завершения закупки
+        public double cost { get; set; } // стоимость общая закупки
         public string contact { get; set; } // контактные данные по закупке
         public string link { get; set; } // ссылка на страницу
         //public string submission_of_docs { get; set; } // порядок подачи документов

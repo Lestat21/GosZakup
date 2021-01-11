@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:GosZakup"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="About" Height="200" Width="350">
+        Title="About" Height="200" Width="350" Icon="/GosZakup;component/Resources/internet.png">
     <Grid>
-        <Label Content="Версия 0.0.0.1" HorizontalAlignment="Left" Margin="21,40,0,0" VerticalAlignment="Top" Height="25" />
+        <Label Content="Версия 0.0.2.1" HorizontalAlignment="Left" Margin="21,40,0,0" VerticalAlignment="Top" Height="25" />
         <Label Content="Парсер сайта госзакупки" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Height="25" />
         <Label Content="Группа 80333" HorizontalAlignment="Left" Margin="21,70,0,0" VerticalAlignment="Top" Height="25" />
         <Label Content="Капралов В.Н." HorizontalAlignment="Left" Margin="21,100,0,0" VerticalAlignment="Top" Height="25" />
-        <Image HorizontalAlignment="Left" Height="115" Margin="186,21,0,0" VerticalAlignment="Top" Width="123" Source="internet.png"/>
+        <Image HorizontalAlignment="Left" Height="115" Margin="186,21,0,0" VerticalAlignment="Top" Width="123" Source="/GosZakup;component/Resources/internet.png"/>
 
     </Grid>
 </Window>

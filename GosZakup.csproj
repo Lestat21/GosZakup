@@ -60,6 +60,12 @@
       <HintPath>packages\System.Text.Encoding.CodePages.4.5.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Infragistics.Themes.MetroDark.Wpf.1.0.0\lib\net40\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Infragistics.Themes.MetroDark.Wpf.1.0.0\lib\net40\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -72,6 +78,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Infragistics.Themes.MetroDark.Wpf.1.0.0\lib\net40\WPFToolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -83,14 +92,23 @@
     <Compile Include="ParsClass\Purchase.cs" />
     <Compile Include="ParsClass\Status.cs" />
     <Compile Include="ParsClass\TypePurshase.cs" />
-    <Compile Include="ViewModel\SerchEngin.cs" />
+    <Compile Include="ViewModel\ViewConsumerDic.cs" />
+    <Compile Include="ViewModel\MainViewTable.cs" />
     <Compile Include="ViewModel\UserContext.cs" />
+    <Compile Include="ViewModel\ViewLots.cs" />
     <Compile Include="View\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SerchOnLIne.xaml.cs">
-      <DependentUpon>SerchOnLIne.xaml</DependentUpon>
+    <Compile Include="View\ConsumerDic.xaml.cs">
+      <DependentUpon>ConsumerDic.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Card.xaml.cs">
+      <DependentUpon>Card.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\ConsumerDic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -108,7 +126,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SerchOnLIne.xaml">
+    <Page Include="View\Card.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -156,13 +174,13 @@
     <Resource Include="Resources\refresh.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\new.ico" />
+    <Resource Include="Resources\new.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\stop sign.ico" />
+    <Resource Include="Resources\stop sign.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\internet.png" />
+    <Resource Include="Resources\internet.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

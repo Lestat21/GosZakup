@@ -10,7 +10,7 @@ namespace GosZakup
 {
     class GosZak
     {
-        public static int check;
+        //public static int check;
         public static string GetPage(string link)  // метод получения кода страницы 
         {
             HttpRequest request = new HttpRequest();
